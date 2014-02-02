@@ -9,9 +9,9 @@ GIT
 
 GIT
   remote: git://github.com/felipec/soap4r.git
-  revision: 2eed7b3c7649435b68c60501e6f80eb33b462ab6
+  revision: 52aba47066bd4cd4351e663482f3ceb33f70ac56
   specs:
-    soap4r (1.5.8)
+    soap2r (1.5.9)
       httpclient (>= 2.1.1)
 
 GIT
@@ -221,9 +221,9 @@ GEM
     geokit-nominatim (1.0.1)
       geokit (~> 1.6)
       json_pure (~> 1.7)
-    geokit-rails3 (0.1.5)
+    geokit-rails (2.0.1)
       geokit (~> 1.5)
-      rails (~> 3.0)
+      rails (>= 3.0)
     gherkin (2.11.6)
       json (>= 1.7.6)
     gon (4.0.2)
@@ -603,7 +603,7 @@ DEPENDENCIES
   geoip
   geokit
   geokit-nominatim
-  geokit-rails3
+  geokit-rails
   globalize3!
   gon
   guard-coffeescript
@@ -652,7 +652,7 @@ DEPENDENCIES
   simplecov
   sitemap_generator
   slim-rails
-  soap4r!
+  soap2r!
   spork
   squeel
   sunrise-file-upload!
