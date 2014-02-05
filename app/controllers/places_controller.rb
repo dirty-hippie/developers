@@ -4,6 +4,7 @@ class PlacesController < ApplicationController
   before_filter :find_page, only: :show
   before_filter :find_time, only: [:show]
   before_filter :set_breadcrumbs_front, only: :show
+  before_filter  :push_day_discounts_to_js
 
   def show
     @date = params[:reserve_date] || Date.today.strftime('%d/%m/%Y')
@@ -22,7 +23,8 @@ class PlacesController < ApplicationController
                    reviews.sort {|a,b| b.avg_mark - a.avg_mark}
                  else
                    reviews
-    end
+               end
+
     if signed_in? && current_user.reservations.pluck(:place_id).include?(@place.id)
       @review = Review.new(reviewable_id: @place.id, reviewable_type: Place.name)
       @review.marks.build
@@ -102,6 +104,12 @@ class PlacesController < ApplicationController
     super
     @breadcrumbs_front << ["<a href=#{with_locale("search")}>#{I18n.t('breadcrumbs.search')}</a>&nbsp"]
     @breadcrumbs_front << ["<a href=#{@place.place_path}>#{@place.title}</a>&nbsp"]
+  end
+
+  def push_day_discounts_to_js
+    gon.day_discounts = @place.week_days.each_with_object([]) do |obj, acc|
+      acc << {start_at: obj.start_at, end_at: obj.end_at, discount: obj.day_discount}
+    end
   end
 
 end

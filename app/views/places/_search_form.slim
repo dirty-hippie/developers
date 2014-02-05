@@ -9,7 +9,7 @@ javascript src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"
     input class='dateFormatNeeded' type="text" name="reserve_date" autocomplete="off" value="#{@date}"
     label for="reserve_time"
     #fixwidth.reserve_time_c
-      select name="reserve_time"
+      select#reserve_time name="reserve_time"
         - time_with_locale(@time).each do |time_el|
           - time_el.each do |k, v|
             - if v
