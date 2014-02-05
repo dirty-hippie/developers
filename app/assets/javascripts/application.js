@@ -39,4 +39,6 @@
 //=require jquery.autocomplete
 //=require mustache
 //= require fancybox
+//= require moment
+//= require moment-range
 //=require_tree ./frontend
